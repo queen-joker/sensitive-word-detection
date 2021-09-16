@@ -201,12 +201,12 @@ class Trie(object):
 
 
 
-    def searchorg(self, sentence, line):
+    def searchorg(self, jvzi, line):
         # 查找
         tmp = self.root
         temps = []
         # temps用于存储相应的下标
-        for index, letter in enumerate(sentence):
+        for index, letter in enumerate(jvzi):
             if self.noWord(letter):
                 continue
             letter = self.q_worker.get_pinyin(letter).replace('-', '')
@@ -220,8 +220,8 @@ class Trie(object):
                 continue
 
             if tmp.length:
-                # 判断上一敏感词是否属于当前原文敏感词内容
-                first_start = self.pipei(node=tmp, org1=sentence, position=index, line=line)
+                
+                first_start = self.pipei(node=tmp, org1=jvzi, position=index, line=line)
                 if len(temps):
                     if first_start == temps[len(temps) - 1]:
                         self.combination.pop(len(self.combination) - 2)
