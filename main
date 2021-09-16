@@ -1,0 +1,30 @@
+import sys
+from actrie import Trie
+import time
+time1 = time.time()
+
+theAcTrie = Trie()
+
+#打开敏感词文件
+file = open("words.txt", encoding="utf-8")
+word_line = file.readlines()
+file.close()
+
+# 敏感词插入
+theAcTrie.prepareWork(word_line)
+
+# 打开待检测文件
+file1 = open("org.txt", encoding="utf-8")
+contents = file1.readlines()
+file1.close()
+
+# 开始匹配
+for line, content in enumerate(contents):
+    theAcTrie.searchorg(content, line + 1)
+
+theAcTrie.writetext("ans.txt")
+#输出
+
+if __name__ == "__main__":
+    time2 = time.time()
+    print('总共耗时:' + str(time2 - time1) + 's')
