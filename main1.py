@@ -136,6 +136,8 @@ class Trie(object):
         makeup = ''
         length = 0
         together = 0
+        s = 'abcdefghijklmnopqrstuvwxyz'
+        s = list(s)
         for i in range(0, len(phrase)):
             # 添加重组的拼音串
             if phrase[i] == '[':
@@ -157,8 +159,9 @@ class Trie(object):
                 makeup += phrase[i]
                 continue
             else:
-                length += 1
+          
                 makeup = phrase[i]
+                length += 1
                 if makeup not in tmp_root.children:
                     node = Node()
                     node.word = makeup
