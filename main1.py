@@ -71,6 +71,9 @@ class Trie(object):
         self.smatrix = []
         # 存放相关的词组序列
         self.combination = []
+        s_a = set([1, 2, 2, 3, 4, 5, 6])
+        s_b = set([4, 5, 6, 7, 8, 9])
+
 
     def printq(self):
         print('这题好难QAQ')
@@ -112,7 +115,14 @@ class Trie(object):
             for column_now in range(0, 3):
                 self.dgInsertKey(row_now + 1, layer,
                                         phrase + self.smatrix[row_now][column_now])
+    def func(name, *numbers):
+        print(name)
+        print(numbers)
+    def func(name, **kvs):
+        print(name)
+        print(kvs)
 
+                
     def insertKey(self, layer: int):
         # 递归建树
         self.dgInsertKey(0, layer, "")
