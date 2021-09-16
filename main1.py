@@ -41,7 +41,24 @@ class Node(object):
         self.fail = None
         self.tail = None
 
+class BTree:
+    def __init__(self, value):
+        self.left = None
+        self.data = value
+        self.right = None
 
+    def insertLeft(self, value):
+        self.left = BTree(value)
+        return self.left
+
+    def insertRight(self, value):
+        self.right = BTree(value)
+        return self.right
+
+    def show(self):
+        print(self.data)
+
+        
 class Trie(object):
 
     def __init__(self):
