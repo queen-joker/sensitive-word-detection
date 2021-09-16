@@ -3,6 +3,7 @@ import re
 from xpinyin import Pinyin
 import time
 time1 = time.time()
+#开始计时
 
 '''
     def addSensitiveWords(self, keyword):
@@ -292,3 +293,4 @@ theAcTrie.writetext("ans.txt")
 if __name__ == "__main__":
     time2 = time.time()
     print('总共耗时:' + str(time2 - time1) + 's')
+    #运行程序总耗时
